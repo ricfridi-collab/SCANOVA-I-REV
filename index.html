@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>منصة التوجيه والتميز الرابعة متوسط</title>
+    
+    <!-- استيراد الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@700&family=Reem+Kufi:wght@400;700&family=Times+New+Roman&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة أيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ربط ملف التنسيقات -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="main-title">فالنجمع الخيرين معا </div>
+        <div class="signature">Designed by Dr.Chouidira Mohamed</div>
+    </header>
+
+    <div class="countdown-container">
+        <div style="margin-bottom:5px; color:var(--gold)">الموعد: 21 ماي 2026</div>
+        <div class="timer-display" id="countdown">
+            <div class="time-unit">-- <span>يوم</span></div>
+            <div class="time-unit">-- <span>ساعة</span></div>
+            <div class="time-unit">-- <span>دقيقة</span></div>
+        </div>
+    </div>
+
+    <!-- قسم المشاكل الشائعة (أيقونات تفاعلية) -->
+    <section class="problems-section">
+        <div class="section-title"><i class="fas fa-lightbulb"></i> حلول للمشاكل الشائعة</div>
+        
+        <div class="icon-grid">
+            <!-- أيقونات مخصصة تناسب الهاتف -->
+            <div class="problem-card" onclick="showAdvice('stress')">
+                <i class="fas fa-heartbeat"></i>
+                <span>قلق الامتحان</span>
+            </div>
+            <div class="problem-card" onclick="showAdvice('focus')">
+                <i class="fas fa-distracted"></i>
+                <span>ضعف التركيز</span>
+            </div>
+            <div class="problem-card" onclick="showAdvice('forget')">
+                <i class="fas fa-brain"></i>
+                <span>النسيان</span>
+            </div>
+            <div class="problem-card" onclick="showAdvice('lazy')">
+                <i class="fas fa-couch"></i>
+                <span>الكسل</span>
+            </div>
+            <div class="problem-card" onclick="showAdvice('time')">
+                <i class="fas fa-clock"></i>
+                <span>إدارة الوقت</span>
+            </div>
+            <div class="problem-card" onclick="showAdvice('fear')">
+                <i class="fas fa-ghost"></i>
+                <span>الخوف من الرسوب</span>
+            </div>
+        </div>
+
+        <div id="adviceDisplay" class="advice-box">
+            اضغط على أحد الأيقونات أعلاه لعرض الحل المقترح ...
+        </div>
+    </section>
+
+    <!-- قسم الامتحانات -->
+    <section class="exam-section">
+        <div class="section-title"><i class="fas fa-file-alt"></i> قاعة الامتحانات</div>
+        
+        <div class="controls">
+            <select id="subjectSelect">
+                <option value="math">الرياضيات</option>
+                <option value="science">العلوم الطبيعية</option>
+                <option value="physics">الفيزياء</option>
+                <option value="islamic">العلوم الإسلامية</option>
+                <option value="civic">التربية المدنية</option>
+                <option value="french">اللغة الفرنسية</option>
+                <option value="english">اللغة الإنجليزية</option>
+                <option value="arabic">اللغة العربية</option>
+                <option value="history">الاجتماعيات</option>
+            </select>
+            <button class="btn-main" onclick="generateExam()">توليد</button>
+        </div>
+
+        <div id="examContainer">
+            <div style="text-align:center; padding:40px; color:#666;">
+                <i class="fas fa-graduation-cap" style="font-size:3rem; margin-bottom:10px;"></i>
+                <p>اختر المادة واضغط توليد للبدء</p>
+            </div>
+        </div>
+
+        <div id="evaluationArea" class="eval-area">
+            <label>تقييمك للأداء (من 10):</label>
+            <input type="range" min="1" max="10" value="5" style="width:100%; accent-color: var(--gold)" oninput="this.nextElementSibling.value = this.value">
+            <output>5</output>
+            <br><br>
+            <label>ملاحظات الضعف:</label>
+            <textarea id="notes" rows="3" placeholder="مثال: صعوبة في الجذور..."></textarea>
+            <button class="btn-main" style="width:100%; margin-top:10px;" onclick="saveEval()">حفظ التقرير</button>
+        </div>
+    </section>
+
+    <!-- ربط ملف الجافاسكريبت -->
+    <script src="script.js"></script>
+</body>
+</html>
